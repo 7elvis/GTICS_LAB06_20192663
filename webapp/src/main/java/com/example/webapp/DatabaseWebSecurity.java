@@ -45,6 +45,6 @@ public class DatabaseWebSecurity extends WebSecurityConfigurerAdapter {
 
     @Bean
     public PasswordEncoder passwordEncoder() {
-        return NoOpPasswordEncoder.getInstance(); // INDICAR QUE NO ESTÁ ENCRIPTADA
+        return new BCryptPasswordEncoder(); // INDICAR QUE NO ESTÁ ENCRIPTADA
     }
 }

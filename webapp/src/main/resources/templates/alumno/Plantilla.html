@@ -60,7 +60,52 @@
 <div th:replace="layout/PlantillaPaciente :: navegacion"></div>
 
 <!-- TRABAJAR AQUI -->
+<div class="container">
+    <h1>Lista de Dispositivos</h1>
 
+
+    <form method="post" action="/employee/search">
+        <!-- *************
+        <div class="row">
+            <div class="mb-3 col-sm-3">
+                <label class="form-label">Buscar:</label>
+                <input type="search" class="form-control" name="s" id="s" th:value="${s}"  />
+            </div>
+            <div class="mb-3 col-sm-3 mt-4">
+                <button type="submit" class="btn btn-success">Consultar</button>
+            </div>
+        </div>-->
+    </form>
+
+    <div class="alert alert-info" role="alert" th:if="${msg != null}" th:text="${msg}">
+        A simple
+    </div>
+
+    <table class="table">
+        <thead>
+        <tr>
+            <th>#</th>
+            <th>Profesor</th>
+            <th>Estudiante</th>
+            <th>Dispostivo</th>
+            <th>Fecha inicio</th>
+            <th>Fecha Fin</th>
+            <th></th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="prestamos, info : ${listaPrestamos}">
+            <td th:text="${info.index + 1}"></td>
+            <td th:text="${prestamos.profesor}"></td>
+            <td th:text="${prestamos.estudiante}"></td>
+            <td th:text="${prestamos.dispositivo}"></td>
+            <td th:text="${prestamos.fecha_inicio}"></td>
+            <td th:text="${prestamos.fecha_fin}"></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
 <!-- ************* -->
 
 

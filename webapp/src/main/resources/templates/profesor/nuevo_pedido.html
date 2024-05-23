@@ -115,117 +115,10 @@
     </head>
     <body class="sb-nav-fixed">
         <div th:replace="layout/PlantillaFarmacista :: navegacion"></div>
-        <div th:replace="layout/MensajesTemplate :: mensajes"></div>
+
         <!-- TRABAJAR AQUI -->
 
-        <div style="height: 100%;">
-            <div class="container" >
-                <div class="main-content">
 
-
-                    <div class="row custom-shadow-border with-padding">
-                        <div class="col-lg-4">
-                            <h2 class="mb-4">Opciones</h2>
-                            <div class="list-group m-lg-4" id="list-tab" role="tablist">
-                                <a class="list-group-item list-group-item-action rounded-0" data-target="#list-profile">Venta con receta</a>
-                                <a class="list-group-item list-group-item-action rounded-0" data-target="#list-avatar">Venta sin receta</a>
-
-                            </div>
-                        </div>
-
-                        <div class="col-lg-8">
-                            <div class="tab-content" id="nav-tabContent">
-                                <div class="tab-pane" id="list-profile" role="tabpanel">
-                                    <!-- Contenido del perfil aquí -->
-
-
-                                    <h2 class="mb-4">Pedido con receta</h2>
-                                    <form class="row g-3" action="/farmacista/pedidoconreceta/guardar"  th:object="${pedido}" method="post">
-                                        <div class="col-md-6">
-                                            <label for="inputNombre" class="form-label">Nombres</label>
-                                            <input type="text" class="form-control" th:field="*{nombre_paciente}" required="">
-                                        </div>
-                                        <div class="col-md-6">
-                                            <label for="inputApellido" class="form-label">Apellidos</label>
-                                            <input type="text" class="form-control"  th:field="*{apellido_paciente}" required="">
-                                        </div>
-                                        <div class="col-md-6">
-                                            <label for="inputCorreo" class="form-label">Correo electrónico</label>
-                                            <input type="email" class="form-control" th:field="*{correo}" placeholder="" required="">
-                                        </div>
-
-                                        <div class="col-md-6">
-                                            <label for="inputDni" class="form-label">DNI</label>
-                                            <input type="text" class="form-control"  th:field="*{dni}" maxlength="8" required="">
-                                        </div>
-                                        <div class="col-md-6">
-                                            <label for="inputDireccion" class="form-label">Dirección de entrega</label>
-                                            <input type="text" class="form-control" th:field="*{direccion}">
-                                        </div>
-                                        <div class="col-md-6">
-                                            <label for="inputHora" class="form-label">Seleccione una hora</label>
-                                            <input type="time" class="form-control" name="hora_de_entrega" required="">
-                                        </div>
-                                        <div class="col-md-6">
-                                            <label for="inputPago" class="form-label">Método de pago</label>
-
-                                            <select th:field="*{metodo_pago}" class="form-select">
-                                                <option value="Efectivo">Efectivo</option>
-                                                <option value="Tarjeta">Tarjeta</option>
-                                            </select>
-                                        </div>
-
-                                        <div class="col-12">
-                                            <button type="submit" class="btn btn-success">Guardar</button>
-                                        </div>
-                                    </form>
-                                </div>
-                                <div class="tab-pane" id="list-avatar" role="tabpanel">
-                                    <!-- Contenido del avatar aquí -->
-
-
-                                    <h2 class="mb-4">Pedido sin receta</h2>
-                                    <form class="row g-3" 
-                                          action="/farmacista/pedidosinreceta/guardar"  
-                                          th:object="${pedido}" method="post">
-                                        <div class="col-md-6">
-                                            <label for="inputEmail4" class="form-label">Nombres</label>
-                                            <input type="text" class="form-control"  th:field="*{nombre_paciente}" required="">
-                                        </div>
-                                        <div class="col-md-6">
-                                            <label for="inputPassword4" class="form-label">Apellidos</label>
-                                            <input type="text" class="form-control"  th:field="*{apellido_paciente}" required="">
-                                        </div>
-
-                                        <div class="col-md-6">
-                                            <label for="inputPago" class="form-label">Método de pago</label>
-
-                                            <select  th:field="*{metodo_pago}" required="" class="form-select">
-                                                <option value="Efectivo">Efectivo</option>
-                                                <option value="Tarjeta">Tarjeta</option>
-                                            </select>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <label for="inputAddress" class="form-label">Correo electrónico</label>
-                                            <input type="email" class="form-control"  th:field="*{correo}" required=""placeholder="">
-                                        </div>
-
-
-                                        <div class="col-12">
-                                            <button type="submit" class="btn btn-success">Guardar cambios</button>
-                                        </div>
-                                    </form>
-
-                                </div>
-
-
-                            </div>
-                        </div>            
-                    </div>
-                </div>
-
-            </div>
-        </div>
         <!-- ************* -->
 
 
@@ -238,25 +131,7 @@
         <script src="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/umd/simple-datatables.min.js"
         crossorigin="anonymous"></script>
         <script src="js/datatables-simple-demo.js"></script>
-        <script>
-            document.addEventListener('DOMContentLoaded', function () {
-                const tabs = document.querySelectorAll('#list-tab a');
-                const panes = document.querySelectorAll('.tab-pane');
 
-                tabs.forEach(tab => {
-                    tab.addEventListener('click', function (e) {
-                        e.preventDefault();
-                        const targetId = tab.getAttribute('data-target');
-                        const targetPane = document.querySelector(targetId);
-
-                        panes.forEach(pane => {
-                            pane.classList.remove('active');
-                        });
-                        targetPane.classList.add('active');
-                    });
-                });
-            });
-        </script>
 
     </body>
 </html>

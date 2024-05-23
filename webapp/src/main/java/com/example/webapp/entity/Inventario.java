@@ -13,7 +13,7 @@ public class Inevntario {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="id_imventario")
+    @Column(name="id_inventario")
     private int id;
     @Column(nullable = false)
     private String nombre;

@@ -25,7 +25,7 @@ public class AdminController {
     InevntarioRepository inventarioRepository;
     @GetMapping("")
     public String listaDispositivos(Model model) {
-        model.addAttribute("listaEmployee", employeesRepository.findAll());
+        model.addAttribute("listaInventario", inventarioRepository.findAll());
 
         return "/admin/Plantilla";
     }
